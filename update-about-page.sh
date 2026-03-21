@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Update the about.astro file with enriched content blocks and updated verbiage
+cat << 'INNEREOF' > src/pages/about.astro
 ---
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -95,3 +99,11 @@ const metadata = {
     </div>
   </section>
 </Layout>
+INNEREOF
+
+# Execution: Git Push
+git add .
+git commit -m "CONTENT: Enriched About page with Image/Text blocks and MUA verbiage"
+git push
+
+echo "SUCCESS: About page enriched and pushed to Github."
