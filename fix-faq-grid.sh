@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Update the index.astro file to include the 4th FAQ item
+cat << 'INNEREOF' > src/pages/index.astro
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
@@ -114,3 +118,11 @@ const metadata = {
     ]}
   />
 </Layout>
+INNEREOF
+
+# Execution: Git Push
+git add .
+git commit -m "UI: Added 4th FAQ item to fix homepage grid layout"
+git push
+
+echo "SUCCESS: Homepage FAQ grid fixed and pushed to Github."
