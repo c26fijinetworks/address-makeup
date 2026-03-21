@@ -15,7 +15,7 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Address.Makeup | Beauty Artistry 💄',
+      title: 'Address.Makeup | Boutique Artistry 💄',
       links: [
         { text: "Claim Your Site – $99", href: getPermalink('/pricing') },
         { text: 'The Story', href: getPermalink('/about') },
