@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Update the pricing.astro file with Makeup Studio verbiage
+cat << 'INNEREOF' > src/pages/pricing.astro
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
@@ -84,3 +88,11 @@ const metadata = {
     ]}
   />
 </Layout>
+INNEREOF
+
+# Execution: Git Push
+git add .
+git commit -m "Refactor: Updated pricing page verbiage for Makeup Studio owners"
+git push
+
+echo "SUCCESS: Pricing page refactored and pushed to Github."
