@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Update Pricing Widget with smaller font sizes and tighter layout for the URL preview
+cat << 'INNEREOF' > src/components/widgets/Pricing.astro
 ---
 import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
@@ -132,3 +136,11 @@ const { title, subtitle, tagline, prices = [], classes = {}, ...rest } = Astro.p
   document.addEventListener('astro:page-load', initVanityPreview);
   initVanityPreview();
 </script>
+INNEREOF
+
+# Execution: Git Push
+git add .
+git commit -m "UI: Fixed URL preview cutoff on pricing tables"
+git push
+
+echo "SUCCESS: Cutoff issue fixed and pushed to Github."
