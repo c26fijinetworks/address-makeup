@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Update the contact.astro file with Makeup Studio verbiage
+cat << 'INNEREOF' > src/pages/contact.astro
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
@@ -16,3 +20,11 @@ const metadata = {
   />
   <GoogleContactForm />
 </Layout>
+INNEREOF
+
+# Execution: Git Push
+git add .
+git commit -m "Refactor: Updated contact page for Address.Makeup"
+git push
+
+echo "SUCCESS: Contact page refactored and pushed to Github."
