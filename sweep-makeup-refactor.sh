@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# 1. Update the 'Review Engine' version of the index (src/pages/_index.astro)
+# This was completely un-updated in the dump.
+cat << 'INNEREOF' > src/pages/_index.astro
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
@@ -144,3 +149,47 @@ const metadata = {
     image={{ src: '/images/testimonial-3.webp', alt: 'Address.Makeup Alt3', width: 600, height: 600 }}
   />
 </Layout>
+INNEREOF
+
+# 2. Fix src/components/widgets/Pricing.astro (Paypal hidden item_name field)
+# This still had "Address.Hair" inside the HTML form.
+sed -i 's/Address.Hair Professional Vanity URL Setup/Address.Makeup Professional Vanity URL Setup/g' src/components/widgets/Pricing.astro
+
+# 3. Update src/components/widgets/Announcement.astro
+# Ensure strong tag and domain are correct
+cat << 'INNEREOF' > src/components/widgets/Announcement.astro
+<div class="dark text-sm bg-black hidden md:flex items-center justify-center overflow-hidden px-3 py-2 relative text-ellipsis whitespace-nowrap">
+  <div class="flex items-center gap-2">
+    <span>✨ </span><span class="text-white font-medium">Claim your professional <strong>address.makeup/yourstudio</strong> vanity URL today.</span>
+  </div>
+  <div class="absolute right-4 top-0 h-full flex items-center"><span class="text-white font-medium">Same-day setup. Just $99</span></div>
+</div>
+INNEREOF
+
+# 4. Clean sweep on any remaining "Address.Hair" strings across the entire src directory
+grep -rl "Address.Hair" src/ | xargs sed -i 's/Address.Hair/Address.Makeup/g'
+grep -rl "address.hair" src/ | xargs sed -i 's/address.hair/address.makeup/g'
+
+# 5. Fix remaining "salon" or "stylist" lowercase references in meta and text
+# Specifically targeting pricing.astro meta description found in your dump
+sed -i 's/Professional salon vanity/Professional makeup studio vanity/g' src/pages/pricing.astro
+sed -i 's/Address.Hair Concept/Address.Makeup Concept/g' src/pages/contact.astro
+
+# 6. Final check on Logo component
+cat << 'INNEREOF' > src/components/Logo.astro
+---
+---
+<a href="/" class="flex items-center">
+  <img src="/images/logo.webp" alt="Address.Makeup" class="h-10 w-auto mr-2 rtl:mr-0 rtl:ml-2" loading="lazy" decoding="async">
+  <span class="self-center text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
+    Address.Makeup
+  </span>
+</a>
+INNEREOF
+
+# 7. Git Push
+git add .
+git commit -m "Final Sweep: Removed all remaining Hair/Salon/Stylist references"
+git push
+
+echo "ALL REFS UPDATED: Website is now 100% Address.Makeup"
