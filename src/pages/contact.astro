@@ -2,6 +2,8 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import GoogleContactForm from '~/components/widgets/GoogleContactForm.astro';
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
 
 const metadata = {
   title: 'Contact | Address.Makeup',
@@ -15,4 +17,16 @@ const metadata = {
     subtitle="Have questions about the Address.Makeup Concept? Our team is ready to help your beauty brand shine online."
   />
   <GoogleContactForm />
+
+  <Features
+    class="-mt-16"
+    columns={3}
+    items={[
+      { title: 'Studio Bulk Pricing', description: 'Running a large studio or glam team? Contact us for custom bulk pricing on 3+ vanity URLs.', icon: 'tabler:building-store' },
+      { title: 'White-Glove Support', description: 'Need help with your social feed sync? Our technical team is here to assist you daily.', icon: 'tabler:headset' },
+      { title: 'Partner Program', description: 'Are you a beauty influencer or academy? Let’s talk about working together.', icon: 'tabler:users' },
+    ]}
+  />
+
+  <Hero class="-mt-16" image={{ src: '/images/testimonial-7.webp', alt: 'Address.Makeup happy client' }} />
 </Layout>
