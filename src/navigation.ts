@@ -3,22 +3,22 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     { text: 'Features', href: getPermalink('/#features') },
-    { text: 'Process', href: getPermalink('/#process') },
+    { text: 'How It Works', href: getPermalink('/#howitworks') },
     { text: 'The Story', href: getPermalink('/about') },
-    { text: 'Pricing', href: getPermalink('/pricing') },
+    { text: 'Grab Your Vanity URL', href: getPermalink('/pricing') },
   ],
   actions: [
-    { text: 'Claim Your URL', variant: 'primary', href: '/pricing' }
+    { text: 'Get Started - $99', variant: 'primary', href: '/pricing' }
   ],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Address.Makeup | Boutique Artistry 💄',
+      title: 'Address.Makeup — Boutique Booking for Makeup Artists',
       links: [
-        { text: "Claim Your Site – $99", href: getPermalink('/pricing') },
-        { text: 'The Story', href: getPermalink('/about') },
+        { text: "Claim Your Spot – $99", href: getPermalink('/pricing') },
+        { text: 'Why We Love Makeup Studios', href: getPermalink('/about') },
         { text: 'Support', href: getPermalink('/contact') },
       ],
     },
@@ -28,5 +28,5 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [],
-  footNote: '© 2026. All rights reserved.',
+  footNote: '💄 Address.Makeup — Fill Your Books on Autopilot. | © ' + new Date().getFullYear() + ' Address.Makeup',
 };
