@@ -5,7 +5,8 @@ export const headerData = {
     { text: 'Features', href: getPermalink('/#features') },
     { text: 'How It Works', href: getPermalink('/#howitworks') },
     { text: 'The Story', href: getPermalink('/about') },
-    { text: 'Grab Your Vanity URL', href: getPermalink('/pricing') },
+    { text: 'Live Demo', href: getPermalink('/demo') },
+    { text: 'Pricing', href: getPermalink('/pricing') },
   ],
   actions: [
     { text: 'Get Started - $99', variant: 'primary', href: '/pricing' }
@@ -15,10 +16,11 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Address.Makeup — Boutique Booking for Makeup Artists',
+      title: 'Address.Makeup — Boutique Artistry for MUAs',
       links: [
         { text: "Claim Your Spot – $99", href: getPermalink('/pricing') },
-        { text: 'Why We Love Makeup Studios', href: getPermalink('/about') },
+        { text: 'Live Demo', href: getPermalink('/demo') },
+        { text: 'The Story', href: getPermalink('/about') },
         { text: 'Support', href: getPermalink('/contact') },
       ],
     },
